@@ -347,34 +347,34 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年12月06日</a>
-			<a><i class="kirafont icon-edit-fill"></i>3k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 12 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>3.3k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 13 分钟</a>
 		</div>
 		<p><s>现已加入KFC豪华套餐</s></p>
-<h1><span id="从零开始的字符串学习指南"> 从零开始的字符串学习指南</span></h1>
+<h1><span id="lt从零开始的字符串学习指南gt"> &lt;从零开始的字符串学习指南&gt;</span></h1>
 <p>本文综合了@adolphshi所有学过的字符串算法，会一直不定期更新。<br>
 <s>但是这个人太懒了，什么时候弃坑了也不一定</s></p>
-<h2><span id="0-前言-统计与目录"> 0 前言、统计与目录</span></h2>
-<h3><span id="01-统计"> 0.1 统计</span></h3>
+<h2><span id="0-lt前言-统计与目录gt"> 0 &lt;前言、统计与目录&gt;</span></h2>
+<h3><span id="01-lt统计gt"> 0.1 &lt;统计&gt;</span></h3>
 <p>开坑日期<code>2023-11-2</code><br>
 hash 完成日期 <code>unknown</code><br>
 tire 树完成日期 <code>unknown</code><br>
 KMP 完成日期 <code>2023-11-30</code></p>
-<h3><span id="02-前言"> 0.2 前言</span></h3>
+<h3><span id="02-lt前言gt"> 0.2 &lt;前言&gt;</span></h3>
 <p>最近看了很多的字符串算法，于是就想写一篇博客记录下来。也希望这篇博客可以帮助一部分人。<br>
 也是为了不被卡在需要对字符串进行处理的题上.<br>
 这里的字符串算法有极大概率没有代码,代码和例题可能完结以后再进行添加.<br>
 这里默认 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 为一个字符串， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">S_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 的第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个字符， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> ~<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> 的子串，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 为字符串 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 的长<br>
 度。</p>
 <p>在此处,若无提前声明,默认字符串的长度是从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 开始的.</p>
-<h3><span id="03-目录"> 0.3 目录</span></h3>
+<h3><span id="03-lt目录gt"> 0.3 &lt;目录&gt;</span></h3>
 <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="1.2em"><mtext>1.hash </mtext></mstyle></mrow><annotation encoding="application/x-tex">\large{\text{1.hash }}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.833328em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size7"><span class="mord text"><span class="mord">1.hash </span></span></span></span></span></span><br>
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="1.2em"><mtext>2.tire树 </mtext></mstyle></mrow><annotation encoding="application/x-tex">\large{\text{2.tire树 }}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.819996em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size7"><span class="mord text"><span class="mord">2.tire</span><span class="mord cjk_fallback">树</span><span class="mord"> </span></span></span></span></span></span><br>
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="1.2em"><mtext>3.KMP </mtext></mstyle></mrow><annotation encoding="application/x-tex">\large{\text{3.KMP }}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.819996em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size7"><span class="mord text"><span class="mord">3.KMP </span></span></span></span></span></span><br>
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="1.2em"><mtext>4.AC自动机 </mtext></mstyle></mrow><annotation encoding="application/x-tex">\large{\text{4.AC自动机 }}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.819996em;vertical-align:0em;"></span><span class="mord sizing reset-size6 size7"><span class="mord text"><span class="mord">4.AC</span><span class="mord cjk_fallback">自动机</span><span class="mord"> </span></span></span></span></span></span><br>
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>待续</mtext><mo>…</mo></mrow><annotation encoding="application/x-tex">{\text{待续\dots}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">待续</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span></span></span></span></span></span></p>
 <hr>
-<h2><span id="1-hash"> 1 hash</span></h2>
+<h2><span id="1-lt-hash-gt"> 1 &lt; hash &gt;</span></h2>
 <blockquote>
 <p>Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围——OI wiki</p>
 </blockquote>
@@ -387,7 +387,7 @@ KMP 完成日期 <code>2023-11-30</code></p>
 <p>因为我们将字符串看成了一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 进制再模 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">p</span></span></span></span> 的整数,所以我们可以使用类似前缀和的思想来进行快速的求出子串的哈希值.</p>
 <p><img src alt="图片here"></p>
 <hr>
-<h2><span id="2-tire树"> 2 tire树</span></h2>
+<h2><span id="2-lttire树gt"> 2 &lt;tire树&gt;</span></h2>
 <blockquote>
 <p>字典树，英文名 trie。顾名思义，就是一个像字典一样的树。——OI wiki</p>
 </blockquote>
@@ -402,22 +402,23 @@ KMP 完成日期 <code>2023-11-30</code></p>
 <img src="https://cdn.luogu.com.cn/upload/image_hosting/3q5zoijq.png" alt><br>
 加粗即为末尾标记.</p>
 <p>其中tire树最为常见的操作是查找字符串~~(不然叫什么<strong>字典树</strong>啊)~~,方法也很简单,就是顺着路径向下找就行了,若找到的最后一个点有末尾标记,便可以找到.</p>
-<h3><span id="22-01-tire"> 2.2 01 tire</span></h3>
+<h3><span id="22-lt01-tiregt"> 2.2 &lt;01 tire&gt;</span></h3>
 <p>顾名思义,就是只有01两个分支的tire树.用01tire树可以很方便地求<strong>最大异或值</strong>,维护异或和等操作.</p>
-<h4><span id="221-01-tire-维护最大异或和"> 2.2.1 01 tire 维护最大异或和</span></h4>
+<h4><span id="221-lt01-tire-维护最大异或和gt"> 2.2.1 &lt;01 tire 维护最大异或和&gt;</span></h4>
 <p>其实不难,因为最大异或和就是希望找一个数字与另外一个数字使其尽可能不同,到 01 tire 上就是尽可能地向另外一条边走即可.</p>
 <p>在此时的01 tire上可以再进行其他的修改操作,这里就不再赘述,感兴趣的读者自行探索.</p>
-<h4><span id="222-01-tire-当平衡树"> 2.2.2 01 tire 当平衡树</span></h4>
+<h4><span id="222-lt01-tire-当平衡树gt"> 2.2.2 &lt;01 tire 当平衡树&gt;</span></h4>
 <p>拿 01 tire 当普通平衡树是最好不过的了,它码量小,易于理解.</p>
 <p>实现就是将每一个数字转成二进制再由高位到低位放入 01 tire 中,tire 的 每一个节点都再维护一个子树大小即可.它基本可以完成普通平衡树所做的所有内容,就是所需空间大小有点大.</p>
-<h3><span id="23-可持久化-tire-树"> 2.3 可持久化 tire 树</span></h3>
+<h3><span id="23-lt可持久化-tire-树gt"> 2.3 &lt;可持久化 tire 树&gt;</span></h3>
 <p>没什么好讲的,就是每将一个 tire 树更新是再进行路径复制即可,代码(按理来说)与主席树没有什么区别.</p>
-<h2><span id="3-kmp"> 3 KMP</span></h2>
+<hr>
+<h2><span id="3-lt-kmp-gt"> 3 &lt; KMP &gt;</span></h2>
 <blockquote>
 <p>因此 Knuth–Morris–Pratt 算法（简称 KMP 算法）用 O(n + m) 的时间以及 O(n) 的内存解决了在字符串中查找子串的问题.——OI wiki</p>
 </blockquote>
 <p>KMP 算法是一个快速匹配子串与母串的算法,它的核心思想就在于利用字符串的重复减少在匹配时的向后跳跃(比较难表述,学完就知道了).</p>
-<h3><span id="31-前缀函数"> 3.1 前缀函数</span></h3>
+<h3><span id="31-lt前缀函数gt"> 3.1 &lt;前缀函数&gt;</span></h3>
 <p>前缀函数(在OI中常用为 next 数组)是一个记录前缀后缀相同的最长的字符串的个数的函数.</p>
 <p>前缀函数是 KMP 的一个非常重要的前置芝士,因为 KMP 的核心就在于利用前缀函数减小时间复杂度.</p>
 <p>前缀函数如图:<br>
@@ -432,18 +433,19 @@ KMP 完成日期 <code>2023-11-30</code></p>
 若不同,则第一个黄色指针跳回上图中蓝色位置(是那个数的 <code>next</code> 值)再进行下一轮比对.<br>
 这里的正确性请读者自证.</p>
 <p>在预处理出 <code>next</code> 数组后,接下来就是进行 KMP 了.</p>
-<h3><span id="32-kmp-算法"> 3.2 KMP 算法</span></h3>
+<h3><span id="32-ltkmp-算法gt"> 3.2 &lt;KMP 算法&gt;</span></h3>
 <p>在 KMP 算法之前,请各位读者回想一下朴素的字符串匹配:<br>
 两个下标字符相同时同时加一,不同时一个回到子串开头,一个回到母串开始匹配的位置加一，再继续进行下一轮匹配。</p>
 <p>而 KMP 算法的思想就是让母串的下标不向回退,这样就可以做到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 匹配字符串了.但是这样子串的下标肯定是不能再向前调回刚开始的位置了,显然正确性是没有保障的.<br>
 这时候回想一下我们的 <code>next</code> 数组~~(其实也不用回忆了,刚看完)~~, <code>next</code> 数组处理的是<strong>最长相同的前后缀</strong>因此我们直接跳至该位置的 <code>next</code> 数组指向的下标即可.<br>
 <img src="https://cdn.luogu.com.cn/upload/image_hosting/0r4mb2sf.png" alt><br>
 还是以这张图为例,当我们在倒数第二个字符处失配时,可以发现,他前面的九个字符与开头的九个字符完全相同,那么这九个字符就不需要进行匹配了(因为匹配到这一个字符时除了这一个字符,前面的字符都应该相等,那么就是后缀与前缀相同的部分就无需再进行匹配了),这样就保证了正确率.</p>
-<h3><span id="33-kmp-算法的可视化"> 3.3 KMP 算法的可视化</span></h3>
+<h3><span id="33-ltkmp-算法的可视化gt"> 3.3 &lt;KMP 算法的可视化&gt;</span></h3>
 <p>这是一个附加的内容,因为我认为我的KMP讲的不太好(本来是有动图的,但是存动图的图床寄了QAQ),很难让读者理解(包括复习时的我),特此,在下面添加一个可以亲自操作的 KMP 可视化的网站:<br>
 <strong><a target="_blank" rel="noopener" href="https://algo.hufeifei.cn/KnuthMorrisPratt.html">link</a></strong><br>
 这个可视化的网站与我所讲的还是有一些出入,原因包括但不限于下标问题,一开始可能会对一部分人造成一定的误解,请谅解.</p>
-<h2><span id="4ac自动机"> 4.AC自动机</span></h2>
+<hr>
+<h2><span id="4-ltac自动机gt"> 4 &lt;AC自动机&gt;</span></h2>
 <blockquote>
 <p>AC 自动机是 以 Trie 的结构为基础，结合 KMP 的思想 建立的自动机，用于解决多模式匹配等任务。——OIwiki</p>
 </blockquote>
@@ -452,7 +454,7 @@ KMP 完成日期 <code>2023-11-30</code></p>
 <p>当然,这个AC自动机并不能使你封号,但我这里还有一个可以让你封号的<strong>自动AC机</strong>.<br>
 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/oycy0306/p/7620539.html">脖子右拧</a>(不是我的博客,也不能在洛谷用)</p>
 <p>好了,话不多说,接下来开始AC自动机的学习:</p>
-<h3><span id="41-失配指针"> 4.1 失配指针</span></h3>
+<h3><span id="41-lt失配指针gt"> 4.1 &lt;失配指针&gt;</span></h3>
 <p>失配指针是需要将所有要进行匹配的字符串放进一个tire树中,然后再加上类似next数组的指针.<br>
 回想一下,我们在之前KMP中学到的next数组的定义: <strong>最长相同前后缀的长度(位置)</strong> 而失配树的定义与其类似,但是是<strong>所有字符串中与当前字符串的后缀相同的最长前缀</strong>.这么说可能有点难以理解,下面放一个图:</p>
 <p><img src="https://cdn.luogu.com.cn/upload/image_hosting/vz793sqo.png" alt></p>
@@ -473,9 +475,23 @@ bfs进行构建.<br>
 <p>若是上面这张图片,发现2号节点并没有a边,于是继续顺着2号节点的fail指针向上,找到根节点,发现根节点有一条a边,便将7的fail指针连向1.</p>
 <p><img src="https://cdn.luogu.com.cn/upload/image_hosting/bp25bspj.png" alt></p>
 <p>那么我们的失配树就构建完了,接下来就是在失配树上跑KMP就行了.</p>
-<h3><span id="42-ac自动机与构建失配树的小优化"> 4.2 AC自动机与构建失配树的小优化</span></h3>
-<p>构建出失配树后,AC自动机就变得很简单了,其实就是将原本向next跳的指针变成了fail指针罢了,再加上每到含有末尾标记的节点就统计答案即可.</p>
-<p>不难,那么接下来就是要将构建失配树的优化了:</p>
+<p>我们通常在构建tire树时,就只是构建一颗树.但是,在AC自动机中,我们还需要记录这个节点在向后加一个字符串后的fail边,并且将这条fail边直接当成字典树的边.</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/6c2cta6n.png" alt></p>
+<p>例如上图中的点4,点4下面是没有节点的,但是当我们找到它,而它下一个是b时,我们假想一个节点x,让它的fail边为4号节点的一条出边.如下:</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/yt1triwe.png" alt></p>
+<h3><span id="42-ltac自动机gt"> 4.2 &lt;AC自动机&gt;</span></h3>
+<ul>
+<li>注:若你见到了AC自动机的某些优化,例如拓扑排序优化等.请无视,因为我不打算讲不带优化的AC自动机.</li>
+</ul>
+<p>AC自动机的原理很简单,其实就是将KMP的过程移到了tire树上而已,不过还是有一些区别的,所以我讲一下.</p>
+<p>顺着tire树(图,因为我们多加了一部分边)向下找,若失配,顺着fail指针向上回退,若找到末尾标记,则这个位置的ans <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>.<br>
+在所有的字符串都找完后,顺着fail树自底向上累加ans即可得到每一个的匹配次数.</p>
+<ul>
+<li>注,为什么结束时还要进行这个操作?<br>
+因为可能会出现一个字符串是另一个字符串的后缀,例如<code>she</code> 和 <code>he</code> .而直接统计会有遗漏.</li>
+</ul>
+<p>这边借用一张OIwiki的图辅助理解:<br>
+<img src="https://oi-wiki.org/string/images/ac-automaton3.gif" alt></p>
 
 	</article>
 
