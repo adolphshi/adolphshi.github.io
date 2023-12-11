@@ -1,0 +1,40 @@
+.kira-background{
+	opacity: 0.6;
+}
+body
+{
+	background-color: #555;
+
+}
+.kira-content .kira-main-content{
+	background-color: #242424;
+}
+article{
+	color: #ddd;
+}
+article h1, article h2, article h3, article h4, article h5, article h6{
+	color: #ddd;
+}
+article blockquote{
+	background-color: #444444;
+	color: #ddd;
+}
+.kira-post .kira-post-copyright{
+	color: #bbb;
+	background-color: #4440;
+}
+.kira-post .kira-post-nav{
+	background-color: #4440;
+}
+.kira-post .kira-post-footer{
+	color: #bbb;
+	background-color: #4440;
+}
+.kira-sidebar .kira-widget-wrap
+{
+	background-color: #333d;
+}
+.kira-sidebar .kira-count div span
+{
+	color: #999;
+}
