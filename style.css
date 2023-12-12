@@ -1,9 +1,9 @@
 .kira-background{
-	opacity: 0.6;
+	opacity: 0.2;
 }
 body
 {
-	background-color: #555;
+	background-color: #222;
 
 }
 .kira-content .kira-main-content{
@@ -37,4 +37,10 @@ article blockquote{
 .kira-sidebar .kira-count div span
 {
 	color: #999;
+}
+@media (max-width: 1000px){
+	body .kira-body .kira-sidebar{
+		background-color: #222;
+	}
+
 }
