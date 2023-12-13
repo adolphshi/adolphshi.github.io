@@ -325,8 +325,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年12月06日</a>
-			<a><i class="kirafont icon-edit-fill"></i>3.5k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 14 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>3.6k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 15 分钟</a>
 		</div>
 		<p><ul class="markdownIt-TOC">
 <li><a href="#0-%E5%89%8D%E8%A8%80-%E7%BB%9F%E8%AE%A1%E4%B8%8E%E7%9B%AE%E5%BD%95">0 &lt;前言、统计与目录&gt;</a>
@@ -335,7 +335,7 @@
 <li><a href="#02-%E5%89%8D%E8%A8%80">0.2 &lt;前言&gt;</a></li>
 </ul>
 </li>
-<li><a href="#1-hash">1 <hash></hash></a></li>
+<li><a href="#1-hash">1 &lt; hash &gt;</a></li>
 <li><a href="#2-tire%E6%A0%91">2 &lt;tire树&gt;</a>
 <ul>
 <li><a href="#21-%E6%99%AE%E9%80%9Atire%E6%A0%91">2.1 &lt;普通tire树&gt;</a><br>
@@ -362,7 +362,7 @@
 <ul>
 <li><a href="#41-%E5%A4%B1%E9%85%8D%E6%8C%87%E9%92%88">4.1 &lt;失配指针&gt;</a></li>
 <li><a href="#42-ac%E8%87%AA%E5%8A%A8%E6%9C%BA">4.2 &lt;AC自动机&gt;</a></li>
-<li><a href="#43-code">4.3 <code></code></a></li>
+<li><a href="#43-code">4.3 &lt; code &gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -385,7 +385,7 @@ KMP 完成日期 <code>2023-11-30</code></p>
 度。</p>
 <p>在此处,若无提前声明,默认字符串的长度是从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 开始的.</p>
 <hr>
-<h2><span id="1"> 1 <hash></hash></span></h2>
+<h2><span id="1-lt-hash-gt"> 1 &lt; hash &gt;</span></h2>
 <blockquote>
 <p>Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围——OI wiki</p>
 </blockquote>
@@ -494,8 +494,8 @@ bfs进行构建.<br>
 <ul>
 <li>注:若你见到了AC自动机的某些优化,例如拓扑排序优化等.请无视,因为我不打算讲不带优化的AC自动机.</li>
 </ul>
-<p>AC自动机的原理很简单,其实就是将KMP的过程移到了tire树上而已,不过还是有一些区别的,所以我讲一下.</p>
-<p>顺着tire树(图,因为我们多加了一部分边)向下找,若失配,顺着fail指针向上回退,若找到末尾标记,则这个位置的ans <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>.<br>
+<p>AC自动机的原理很简单,其实就是将KMP的过程移到了字典树(图)上而已,不过还是有一些区别的,所以我讲一下.</p>
+<p>顺着tire树向下找,若失配,顺着fail指针向上回退,若找到末尾标记,则这个位置的ans <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>.<br>
 在所有的字符串都找完后,顺着fail树自底向上累加ans即可得到每一个的匹配次数.</p>
 <ul>
 <li>注,为什么结束时还要进行这个操作?<br>
@@ -503,14 +503,22 @@ bfs进行构建.<br>
 </ul>
 <p>这边借用一张OIwiki的图辅助理解:<br>
 <img src="https://oi-wiki.org/string/images/ac-automaton3.gif" alt></p>
-<h3><span id="43"> 4.3 <code></code></span></h3>
+<h3><span id="43-lt-code-gt"> 4.3 &lt; code &gt;</span></h3>
 <p>因为AC自动机也是刚刚学，所以这边给出代码加深印象并辅助理解：</p>
 <div class="spoiler collapsed">
     <div class="spoiler-title">
         需要的数组、结构体
     </div>
     <div class="spoiler-content">
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ss</span><br>&#123;<br>  <span class="hljs-type">int</span> tg,nex[<span class="hljs-number">30</span>],fail,id;<br>&#125;tr[maxn];<br><span class="hljs-type">int</span> n,head[maxn],res[maxn],pos[maxn],to[maxn],nex[maxn],tot,cnt;<br></code></pre></td></tr></table></figure>
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ss</span><br>&#123;<br>  <span class="hljs-type">int</span> tg,nex[<span class="hljs-number">30</span>],fail;\\从左到右分别为：末尾标记、出边、失配指针<br>&#125;tr[maxn];\\字典树（图）<br><span class="hljs-type">int</span> n,ans[maxn],cnt;\\cnt 为内存池，ans用于存储答案<br><span class="hljs-type">int</span> head[maxn],to[maxn],nex[maxn],tot;\\构建fail树所需的链式前向星<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        字典树的构建
+    </div>
+    <div class="spoiler-content">
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp">\\这个其实没什么好说的，就和正常的字典树构建一样<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">char</span> *s)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-type">int</span> now=<span class="hljs-number">0</span>;<br>  _F(i,<span class="hljs-number">1</span>,<span class="hljs-built_in">strlen</span>(s+<span class="hljs-number">1</span>))<br>  &#123;<br>    <span class="hljs-keyword">if</span>(!tr[now].nex[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>])<br>      tr[now].nex[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>]=++cnt;<br>    now=tr[now].nex[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>];<br>  &#125;<br>  tr[now].tg++;<br>&#125;<br></code></pre></td></tr></table></figure>
     </div>
 </div>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
