@@ -325,8 +325,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年12月06日</a>
-			<a><i class="kirafont icon-edit-fill"></i>3.6k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 15 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>3.9k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 17 分钟</a>
 		</div>
 		<p><ul class="markdownIt-TOC">
 <li><a href="#0-%E5%89%8D%E8%A8%80-%E7%BB%9F%E8%AE%A1%E4%B8%8E%E7%9B%AE%E5%BD%95">0 &lt;前言、统计与目录&gt;</a>
@@ -521,6 +521,31 @@ bfs进行构建.<br>
         <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp">\\这个其实没什么好说的，就和正常的字典树构建一样<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">char</span> *s)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-type">int</span> now=<span class="hljs-number">0</span>;<br>  _F(i,<span class="hljs-number">1</span>,<span class="hljs-built_in">strlen</span>(s+<span class="hljs-number">1</span>))<br>  &#123;<br>    <span class="hljs-keyword">if</span>(!tr[now].nex[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>])<br>      tr[now].nex[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>]=++cnt;<br>    now=tr[now].nex[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>];<br>  &#125;<br>  tr[now].tg++;<br>&#125;<br></code></pre></td></tr></table></figure>
     </div>
 </div>
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        bfs构建fail指针
+    </div>
+    <div class="spoiler-content">
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs cpp">queue&lt;<span class="hljs-type">int</span> &gt; q;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>  to[++tot]=b;<br>  nex[tot]=head[a];<br>  head[a]=tot;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  _F(i,<span class="hljs-number">1</span>,<span class="hljs-number">26</span>)<br>  &#123;<br>    <span class="hljs-keyword">if</span>(tr[<span class="hljs-number">0</span>].nex[i])\\如果存在<br>    &#123;<br>      fail[tr[<span class="hljs-number">0</span>].nex[i]]=<span class="hljs-number">0</span>;\\预先处理出根节点儿子的fail指针<br>      q.<span class="hljs-built_in">push</span>(tr[<span class="hljs-number">0</span>].nex[i]);<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())<br>  &#123;<br>    <span class="hljs-type">int</span> t=q.<span class="hljs-built_in">front</span>();<br>    q.<span class="hljs-built_in">pop</span>();<br>    _F(i,<span class="hljs-number">1</span>,<span class="hljs-number">26</span>)<br>    &#123;<br>      <span class="hljs-keyword">if</span>(tr[t].nex[i])\\如果存在<br>      &#123;<br>        fail[tr[t].nex[i]]=tr[fail[t]].nex[i];\\设置fail指针为father的fail指针的儿子<br>        q.<span class="hljs-built_in">push</span>(tr[t].nex[i]);<br>      &#125;<br>      <span class="hljs-keyword">else</span><br>        tr[t].nex[i]=tr[fail[t]].nex[i];\\假想一个新节点，并让它的fail边成为当前节点的出边<br>    &#125;<br>  &#125;<br>  _F(i,<span class="hljs-number">1</span>,cnt) <span class="hljs-built_in">add</span>(fail[i],i);\\构建fail树<br>&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        AC自动机处理询问
+    </div>
+    <div class="spoiler-content">
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">ac_ask</span><span class="hljs-params">(<span class="hljs-type">char</span> *t)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-type">int</span> l=<span class="hljs-built_in">strlen</span>(t+<span class="hljs-number">1</span>);<br>  <span class="hljs-type">int</span> now=<span class="hljs-number">0</span>;<br>  _F(i,<span class="hljs-number">1</span>,l)<br>  &#123;<br>    now=tr[now].nex[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>];\\因为我们预先处理出了如果下一个字符是什么，我么将跳到什么位置，因此我们在这里直接向下找即可<br>    <span class="hljs-keyword">if</span>(tr[now].tg)\\ 这里不同的写法会有不同的效果，我这里是【模板】AC自动机（简单版）中的要求<br>      ans[now]=tr[now].tg;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        fail树自底向上处理最终结果
+    </div>
+    <div class="spoiler-content">
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-built_in">TF</span>(i,x,y)<br>  &#123;<br>    y=to[i];<br>    <span class="hljs-built_in">dfs</span>(y);\\dfs并累加子树<br>    ans[x]+=ans[y];<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+<hr>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
 	</article>
 
