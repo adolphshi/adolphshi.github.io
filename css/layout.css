@@ -581,6 +581,19 @@ details div.kira-aplayer-container div[id^='aplayer-'] div.aplayer-body div.apla
   border-radius: 50%;
   transition: transform 1.5s ease-out;
 }
+.kira-sidebar .my-name {
+  display: flex;
+}
+.kira-sidebar .my-name div {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+  color: #a3a8ae;
+}
+.kira-sidebar .my-name div h2 {
+  display: block;
+}
 .kira-sidebar .kira-count {
   display: flex;
 }
