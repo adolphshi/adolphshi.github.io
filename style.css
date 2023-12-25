@@ -43,4 +43,14 @@ article blockquote{
 		background-color: #222;
 	}
 
+}
+.ima:hover
+{
+	box-shadow: 0 0 10px rgba(49,174,255,0.3) !important;
+ 	transform: rotate(360deg) !important;
+ 	border-radius: 50px !important;
+}
+.ima 
+{
+	transition: all 0.5s cubic-bezier(.45,.05,.55,.95) !important;
 }<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
