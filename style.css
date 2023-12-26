@@ -53,4 +53,8 @@ article blockquote{
 .ima 
 {
 	transition: all 0.5s cubic-bezier(.45,.05,.55,.95) !important;
+} 
+.rip
+{
+	float: left;
 }<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
