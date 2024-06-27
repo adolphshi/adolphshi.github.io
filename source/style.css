@@ -1,0 +1,60 @@
+.kira-background{
+	opacity: 0.2;
+}
+body
+{
+	background-color: #222;
+
+}
+.kira-content .kira-main-content{
+	background-color: #242424;
+}
+article{
+	color: #ddd;
+}
+article h1, article h2, article h3, article h4, article h5, article h6{
+	color: #ddd;
+}
+article blockquote{
+	background-color: #444444;
+	color: #ddd;
+}
+.kira-post .kira-post-copyright{
+	color: #bbb;
+	background-color: #4440;
+}
+.kira-post .kira-post-nav{
+	background-color: #4440;
+}
+.kira-post .kira-post-footer{
+	color: #bbb;
+	background-color: #4440;
+}
+.kira-sidebar .kira-widget-wrap
+{
+	background-color: #333d;
+}
+.kira-sidebar .kira-count div span
+{
+	color: #999;
+}
+@media (max-width: 1000px){
+	body .kira-body .kira-sidebar{
+		background-color: #222;
+	}
+
+}
+.ima:hover
+{
+	box-shadow: 0 0 10px rgba(49,174,255,0.3) !important;
+ 	transform: rotate(360deg) !important;
+ 	border-radius: 50px !important;
+}
+.ima 
+{
+	transition: all 0.5s cubic-bezier(.45,.05,.55,.95) !important;
+} 
+.rip
+{
+	float: left;
+}
